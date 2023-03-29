@@ -1,7 +1,5 @@
-console.log("indexExtAsyncLazy.");
-
+// src/entrypoints/dynamicImport_ExtAsync_Lazy.js
 main();
-
 async function main() {
   let modPath = "ext_mod";
   const { AsyncMod } = await import(modPath);

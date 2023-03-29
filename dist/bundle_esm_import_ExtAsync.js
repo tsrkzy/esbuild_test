@@ -17,9 +17,9 @@ var AsyncMod = class {
   }
 };
 
-// src/entrypoints/AAA.js
+// src/entrypoints/import_ExtAsync.js
 main();
 async function main() {
-  const s = new AsyncMod();
-  s.hello();
+  const a = new AsyncMod();
+  a.hello();
 }

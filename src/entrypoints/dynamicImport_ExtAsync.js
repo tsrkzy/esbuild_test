@@ -1,5 +1,3 @@
-console.log("indexExtAsync.");
-
 main();
 
 async function main() {

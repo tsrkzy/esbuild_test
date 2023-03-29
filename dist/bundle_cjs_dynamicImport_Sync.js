@@ -8,15 +8,15 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// src/modules/sync_mod.js
-var sync_mod_exports = {};
-__export(sync_mod_exports, {
-  Sync_mod: () => Sync_mod
+// src/modules/synchronous.js
+var synchronous_exports = {};
+__export(synchronous_exports, {
+  Synchronous: () => Synchronous
 });
-var Sync_mod;
-var init_sync_mod = __esm({
-  "src/modules/sync_mod.js"() {
-    Sync_mod = class {
+var Synchronous;
+var init_synchronous = __esm({
+  "src/modules/synchronous.js"() {
+    Synchronous = class {
       constructor() {
       }
       hello() {
@@ -26,11 +26,10 @@ var init_sync_mod = __esm({
   }
 });
 
-// src/entrypoints/indexSync.js
-console.log("indexSync.");
+// src/entrypoints/dynamicImport_Sync.js
 main();
 async function main() {
-  const { Sync_mod: Sync_mod2 } = await Promise.resolve().then(() => (init_sync_mod(), sync_mod_exports));
-  const s = new Sync_mod2();
+  const { Synchronous: Synchronous2 } = await Promise.resolve().then(() => (init_synchronous(), synchronous_exports));
+  const s = new Synchronous2();
   s.hello();
 }

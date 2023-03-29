@@ -8,12 +8,9 @@
   # エラー起きても処理続行
   set +e
 
-  for f in ./dist/*.js; do
+  for f in ./src/entrypoints/*.js; do
     FILENAME=$(basename ${f})
     echo "executing ${FILENAME}..."
-
-    # エラー出力以外無視して実行
-    node ${f} >/dev/null
-    #    node ${f}
-  done
+    node ${f}
+    done
 )

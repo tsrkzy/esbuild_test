@@ -8,39 +8,42 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// ext_mod/index.js
-var ext_mod_exports = {};
-__export(ext_mod_exports, {
-  AsyncMod: () => AsyncMod
+// src/modules/asynchronous.js
+var asynchronous_exports = {};
+__export(asynchronous_exports, {
+  Asynchronous: () => Asynchronous
 });
+
 async function asyncFn() {
   return new Promise((resolve) => {
-    console.log("\u30ED\u30FC\u30C9\u4E2D\u3067\u3059");
+    console.log("initial loading...");
     setTimeout(() => {
-      console.log("  \u30ED\u30FC\u30C9\u5B8C\u4E86\uFF01");
+      console.log("  loading complete!");
       resolve();
     }, 500);
   });
 }
-var AsyncMod;
-var init_ext_mod = __esm({
-  async "ext_mod/index.js"() {
+
+var Asynchronous;
+var init_asynchronous = __esm({
+  async "src/modules/asynchronous.js"() {
     await asyncFn();
-    AsyncMod = class {
+    Asynchronous = class {
       constructor() {
       }
+
       hello() {
-        console.log("\u3044\u3064\u3067\u3082\u547C\u3093\u3067\u304F\u3060\u3055\u3044\u3002");
+        console.log("Call me anytime.");
       }
     };
   }
 });
 
-// src/entrypoints/indexExtAsync.js
-console.log("indexExtAsync.");
+// src/entrypoints/dynamicImport_Async.js
 main();
+
 async function main() {
-  const { AsyncMod: AsyncMod2 } = await init_ext_mod().then(() => ext_mod_exports);
-  const s = new AsyncMod2();
+  const { Asynchronous: Asynchronous2 } = await init_asynchronous().then(() => asynchronous_exports);
+  const s = new Asynchronous2();
   s.hello();
 }
